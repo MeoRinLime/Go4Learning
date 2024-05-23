@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace CourseStructure
 {
-    public class KnowledgePoint//知识点类，包含知识点名称和内容部分
+    public class KnowledgePoint // 知识点类，包含知识点名称和内容部分
     {
-        public string Name { get; set; }
-        public List<ContentSection> ContentSections { get; set; }
+        public int KnowledgeId { get; set; }
+        public string KnowledgePointContent { get; set; }
+        public string KnowledgePointName { get; set; }
+        public int CourseId { get; set; }
 
-        public KnowledgePoint(string name)
-        {
-            Name = name;
-            ContentSections = new List<ContentSection>();
-        }
+        public KnowledgePoint() { }
 
-        public void AddContentSection(ContentSection section)
+        public KnowledgePoint(int knowledgeId, string content, string name, int courseId)
         {
-            ContentSections.Add(section);
+            KnowledgeId = knowledgeId;
+            KnowledgePointContent = content;
+            KnowledgePointName = name;
+            CourseId = courseId;
         }
     }
 }
+
