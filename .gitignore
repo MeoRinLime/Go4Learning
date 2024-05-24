@@ -1,0 +1,8 @@
+obj
+bin
+
+.config
+.csproj
+Package
+/back/.vs/ProjectEvaluation
+/back
