@@ -9,11 +9,11 @@ namespace back.Modules
 {
     public class WebSite // 参考网站的类定义
     {
-        public int WebSiteId { get; set; }
-        public string WebSiteName { get; set; }
-        public int WebSiteType { get; set; }
-        public string WebSiteUrl { get; set; }
-        public int CourseId { get; set; }
+        public int? WebSiteId { get; set; }
+        public string? WebSiteName { get; set; }
+        public int? WebSiteType { get; set; }
+        public string? WebSiteUrl { get; set; }
+        public int? CourseId { get; set; }
         public WebSite()
         {
 

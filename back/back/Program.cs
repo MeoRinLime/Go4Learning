@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<CourseContext>(context => context.UseMySQL("Server=localhost;Database=golearning;User=root;Password=183561"));
+builder.Services.AddDbContext<UserContext>(context => context.UseMySQL("Server=localhost;Database=golearning;User=root;Password=183561"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

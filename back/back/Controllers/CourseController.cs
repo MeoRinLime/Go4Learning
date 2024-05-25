@@ -13,10 +13,10 @@ namespace back.Controllers
     public class CourseController : ControllerBase
     {
         private readonly ILogger<CourseController> _logger;
-        private CourseService CourseService;
+        private CourseService courseService;
         public CourseController(CourseContext context, ILogger<CourseController> logger)
         {
-            CourseService = new CourseService(context);
+            courseService = new CourseService(context);
             _logger = logger;
         }
 
@@ -25,9 +25,20 @@ namespace back.Controllers
         public Result<List<Course>> getCourseList()
         {
 
-            return CourseService.getCourseList(); ;
+            return courseService.getCourseList(); ;
         }
-      
+
+        [HttpPost("addCourse")]
+        public Result<Course> addCorse(Course course)
+        {
+            return courseService.addCorse(course);
+        }
+
+        [HttpPost("addWebSiteList")]
+        public Result<string> addWebsiteList([FromBody]List<WebSite> webSites)
+        {
+            return courseService.addWebsiteList(webSites);
+        }
     }
     
 }

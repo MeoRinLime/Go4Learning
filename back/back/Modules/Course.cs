@@ -9,10 +9,11 @@ namespace back.Modules
 {
     public class Course
     {
-        public int CourseId { get; set; }
+        public int? CourseId { get; set; }
         public string CourseName { get; set; }
         public DateTime CreateTime { get; set; }
         public int CourseCreatorId { get; set; }
+        public int CourseState { get; set; }
         [NotMapped]
         public List<WebSite> ReferenceSites { get; set; }
         [NotMapped]

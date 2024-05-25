@@ -25,7 +25,7 @@ namespace back.Context
                 entity.Property(e => e.CourseName).HasColumnName("courseName");
                 entity.Property(e => e.CreateTime).HasColumnName("createTime");
                 entity.Property(e => e.CourseCreatorId).HasColumnName("courseCreatorId");
-                
+                entity.Property(e => e.CourseState).HasColumnName("courseState");
             });
             modelBuilder.Entity<WebSite>().ToTable("website");
             modelBuilder.Entity<WebSite>(entity =>
