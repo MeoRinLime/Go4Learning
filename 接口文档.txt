@@ -1,0 +1,427 @@
+GET   /course/{id}                    //id是-1，则是学生获取老师们已经发布的课程，是正整数则是老师获取他编辑的课程
+返回：
+{
+    "code": 1,
+    "msg": null,
+    "data": [
+        {
+            "courseId": 1,
+            "courseName": "1",
+            "createTime": "2024-05-01T17:07:23",
+		"courseState": 1,
+            "courseCreatorId": 1,
+            "referenceSites": [
+                {
+                    "webSiteId": 0,
+                    "webSiteName": "122222",
+                    "webSiteType": 0,
+                    "webSiteUrl": "111111",
+                    "courseId": 1
+                }
+            ],
+            "recommendedCourses": [
+                {
+                    "webSiteId": 0,
+                    "webSiteName": "122222",
+                    "webSiteType": 0,
+                    "webSiteUrl": "111111",
+                    "courseId": 1
+                }
+            ],
+            "knowledgePoints": [
+                {
+                    "knowledgeId": 1,
+                    "knowledgePointContent": "111111",
+                    "knowledgePointName": "11",
+                    "courseId": 1
+                }
+            ]
+        }
+    ]
+}
+-------------------------------------------------------------------
+Post user/register  //注册
+body :
+{
+    "UserId":"12345",
+    "UserName":"13214",
+    "UserPassword":"12345",
+    "UserType":1
+}
+返回：
+//账号存在
+{
+    "code": 0,
+    "msg": "该账号已存在",
+    "data": null
+}
+//注册成功
+{
+    "code": 1,
+    "msg": null,
+    "data": "注册成功"
+}
+----------------------------------------------------------------
+Post  user/login  //登陆
+body:
+{
+    "UserId":"12345",
+    "UserPassword":"1235"
+}
+返回：
+//密码错误
+{
+    "code": 0,
+    "msg": "密码错误",
+    "data": null
+}
+//账号不存在
+{
+    "code": 0,
+    "msg": "该账号不存在",
+    "data": null
+}
+//登陆成功
+{
+    "code": 1,
+    "msg": null,
+    "data": {
+        "userId": 12345,
+        "userName": "13214",
+        "userType": 1,
+        "userPassword": "12345"
+    }
+}
+-----------------------------------------------
+Post course/addCourse  //老师添加课程
+body:
+ {
+            
+            "courseName": "1",
+            "createTime": "2024-05-01T17:07:23",
+            "courseCreatorId": 1,
+            "courseState": 0
+            
+ }
+返回
+{
+    "code": 1,
+    "msg": null,
+    "data": {
+        "courseId": 2,
+        "courseName": "1",
+        "createTime": "2024-05-01T17:07:23",
+        "courseCreatorId": 1,
+        "courseState": 0,
+        "referenceSites": [],
+        "recommendedCourses": [],
+        "knowledgePoints": []
+    }
+}
+----------------------------------------------------
+Post course/addWebSiteList //老师添加了website的东西
+body：
+ [
+     {
+         
+        "webSiteName": "1213w1",
+        "webSiteType": 0,
+        "webSiteUrl": "1311",
+        "courseId": 1
+    },
+     {
+        
+         "webSiteName": "122222",
+        "webSiteType": 1,
+        "webSiteUrl": "1111231",
+        "courseId": 1
+    }
+     
+ ]
+返回
+{
+    "code": 1,
+    "msg": null,
+    "data": "正常"
+}
+---------------------------------------------
+Post  course/addKnowledgePointList
+body：
+[
+     {
+                    
+        "knowledgePointContent": "1134211",
+        "knowledgePointName": "11",
+        "courseId": 1
+    },
+    {
+                    
+     "knowledgePointContent": "11wfqqefeqf211",
+    "knowledgePointName": "1qfeqef",
+    "courseId": 1
+    }
+]
+返回
+{
+    "code": 1,
+    "msg": null,
+    "data": [
+        {
+            "knowledgeId": 4,
+            "knowledgePointContent": "1134211",
+            "knowledgePointName": "11",
+            "courseId": 1
+        },
+        {
+            "knowledgeId": 5,
+            "knowledgePointContent": "11wfqqefeqf211",
+            "knowledgePointName": "1qfeqef",
+            "courseId": 1
+        }
+    ]
+}
+----------------------------------------------------------------
+Post   course/removeWebSiteList
+body:
+[
+        {
+            "webSiteId": 7,
+            "webSiteName": "1frew1",
+            "webSiteType": 0,
+            "webSiteUrl": "1311",
+            "courseId": 1
+        },
+        {
+            "webSiteId": 8,
+            "webSiteName": "1fqeef2",
+            "webSiteType": 1,
+            "webSiteUrl": "11efeq31",
+            "courseId": 1
+        }
+    ]
+返回：
+{
+    "code": 1,
+    "msg": null,
+    "data": "删除成功"
+}
+-------------------------------------------------------------------
+Post  course/ removeKnowledgePointList
+body：
+[
+        {
+            "knowledgeId": 2,
+            "knowledgePointContent": "1134211",
+            "knowledgePointName": "11",
+            "courseId": 1
+        },
+        {
+            "knowledgeId": 3,
+            "knowledgePointContent": "11wfqqefeqf211",
+            "knowledgePointName": "1qfeqef",
+            "courseId": 1
+        }
+]
+返回
+{
+    "code": 1,
+    "msg": null,
+    "data": "删除成功"
+}
+-------------------------------------------------------------------
+Get  course/removeCourse/{id}
+返回
+{
+    "code": 1,
+    "msg": null,
+    "data": "删除成功"
+}
+-------------------------------------------------------------------
+Post course/updateKnowledgePointList
+body：
+[
+        {
+            "knowledgeId": 4,
+            "knowledgePointContent": "傻逼二分五分1",
+            "knowledgePointName": "11",
+            "courseId": 1
+        },
+        {
+            "knowledgeId": 5,
+            "knowledgePointContent": "11傻逼宝我父亲宝211",
+            "knowledgePointName": "1qfeqef",
+            "courseId": 1
+        }
+ ]
+返回:
+{
+    "code": 1,
+    "msg": null,
+    "data": [
+        {
+            "knowledgeId": 4,
+            "knowledgePointContent": "傻逼二分五分1",
+            "knowledgePointName": "11",
+            "courseId": 1
+        },
+        {
+            "knowledgeId": 5,
+            "knowledgePointContent": "11傻逼宝我父亲宝211",
+            "knowledgePointName": "1qfeqef",
+            "courseId": 1
+        }
+    ]
+}
+-------------------------------------------------------------------------------------------
+Post     course/updateWebSiteList
+body:
+[
+        {
+            "webSiteId": 9,
+            "webSiteName": "1安东猥琐男w1",
+            "webSiteType": 0,
+            "webSiteUrl": "1311",
+            "courseId": 1
+        },
+        {
+            "webSiteId": 10,
+            "webSiteName": "12父亲无法2",
+            "webSiteType": 1,
+            "webSiteUrl": "11哇服务231",
+            "courseId": 1
+        }
+    ]
+
+返回：
+{
+    "code": 1,
+    "msg": null,
+    "data": [
+        {
+            "webSiteId": 9,
+            "webSiteName": "1安东猥琐男w1",
+            "webSiteType": 0,
+            "webSiteUrl": "1311",
+            "courseId": 1
+        },
+        {
+            "webSiteId": 10,
+            "webSiteName": "12父亲无法2",
+            "webSiteType": 1,
+            "webSiteUrl": "11哇服务231",
+            "courseId": 1
+        }
+    ]
+}
+-----------------------------------------------------------------------
+Post   course/updateCourse
+{
+            "courseId": 1,
+            "courseName": "1带给我赛迪顾问环球网",
+            "createTime": "2024-05-01T17:07:23",
+            "courseCreatorId": 1,
+            "courseState": 1     
+}
+返回
+{
+            "courseId": 1,
+            "courseName": "1带给我赛迪顾问环球网",
+            "createTime": "2024-05-01T17:07:23",
+            "courseCreatorId": 1,
+            "courseState": 1     
+}
+//当然你的body传成这样也没问题，只是肯定
+//不会更改"referenceSites""recommendedCourses" "knowledgePoints"的值
+body:
+{
+            "courseId": 1,
+            "courseName": "1带给我赛迪顾问环球网",
+            "createTime": "2024-05-01T17:07:23",
+            "courseCreatorId": 1,
+            "courseState": 1,
+            "referenceSites": [
+                {
+                    "webSiteId": 9,
+                    "webSiteName": "1安东猥琐男w1",
+                    "webSiteType": 0,
+                    "webSiteUrl": "1311",
+                    "courseId": 1
+                }
+            ],
+            "recommendedCourses": [
+                {
+                    "webSiteId": 10,
+                    "webSiteName": "12父亲无法2",
+                    "webSiteType": 1,
+                    "webSiteUrl": "11哇服务231",
+                    "courseId": 1
+                }
+            ],
+            "knowledgePoints": [
+                {
+                    "knowledgeId": 1,
+                    "knowledgePointContent": "111111",
+                    "knowledgePointName": "11",
+                    "courseId": 1
+                },
+                {
+                    "knowledgeId": 4,
+                    "knowledgePointContent": "傻逼二分五分1",
+                    "knowledgePointName": "11",
+                    "courseId": 1
+                },
+                {
+                    "knowledgeId": 5,
+                    "knowledgePointContent": "11傻逼宝我父亲宝211",
+                    "knowledgePointName": "1qfeqef",
+                    "courseId": 1
+                }
+            ]
+        }
+返回：
+{
+            "courseId": 1,
+            "courseName": "1带给我赛迪顾问环球网",
+            "createTime": "2024-05-01T17:07:23",
+            "courseCreatorId": 1,
+            "courseState": 1,
+            "referenceSites": [
+                {
+                    "webSiteId": 9,
+                    "webSiteName": "1安东猥琐男w1",
+                    "webSiteType": 0,
+                    "webSiteUrl": "1311",
+                    "courseId": 1
+                }
+            ],
+            "recommendedCourses": [
+                {
+                    "webSiteId": 10,
+                    "webSiteName": "12父亲无法2",
+                    "webSiteType": 1,
+                    "webSiteUrl": "11哇服务231",
+                    "courseId": 1
+                }
+            ],
+            "knowledgePoints": [
+                {
+                    "knowledgeId": 1,
+                    "knowledgePointContent": "111111",
+                    "knowledgePointName": "11",
+                    "courseId": 1
+                },
+                {
+                    "knowledgeId": 4,
+                    "knowledgePointContent": "傻逼二分五分1",
+                    "knowledgePointName": "11",
+                    "courseId": 1
+                },
+                {
+                    "knowledgeId": 5,
+                    "knowledgePointContent": "11傻逼宝我父亲宝211",
+                    "knowledgePointName": "1qfeqef",
+                    "courseId": 1
+                }
+            ]
+        }
+-------------------------
