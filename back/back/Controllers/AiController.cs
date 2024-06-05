@@ -13,7 +13,7 @@ public class AIController : ControllerBase
     [HttpPost("generate")]
     public async Task Ai([FromBody] AiRequest request)
     {
-        var apiKey = "sk-b1aa0cd7dfde4cdda763efd7b2ca6d91";
+        var apiKey = Environment.GetEnvironmentVariable("DASHSCOPE_API_KEY");
         var requestMessage = new HttpRequestMessage
         {
             Method = HttpMethod.Post,
