@@ -10,7 +10,17 @@
 前后端分离设计，前端主要采用Vue + tauri 框架，后端采用C# + EF + WebAPI框架，数据库使用MySQL。
 
 项目主要分工：
-后端设计以及实现：[Luoposhancpa](https://github.com/Luoposhancpa) , [tideYH](https://github.com/tideYH)
-数据库设计及实现：[Luoposhancpa](https://github.com/Luoposhancpa) , [MeoRinLime](https://github.com/MeoRinLime)
-前端设计以及实现：[WelkinSky](https://github.com/welkin-sky)
-大语言模型接入：[MeoRinLime](https://github.com/MeoRinLime)
+后端设计以及实现：[Luoposhancpa](https://github.com/Luoposhancpa) , [tideYH](https://github.com/tideYH) 
+
+数据库设计及实现：[Luoposhancpa](https://github.com/Luoposhancpa) , [MeoRinLime](https://github.com/MeoRinLime) 
+
+前端设计以及实现：[WelkinSky](https://github.com/welkin-sky) 
+
+大语言模型接入：[MeoRinLime](https://github.com/MeoRinLime) 
+
+
+
+展示PPT制作：[tideYH](https://github.com/tideYH) 
+
+展示人：[MeoRinLime](https://github.com/MeoRinLime) 
+
