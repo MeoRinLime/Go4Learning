@@ -5,4 +5,5 @@ bin
 .csproj
 Package
 /back/.vs/ProjectEvaluation
+.vs
 
